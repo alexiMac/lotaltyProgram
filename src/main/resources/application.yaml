@@ -1,0 +1,34 @@
+spring:
+    #config:
+        #activate:
+            #on-profile: local
+    application:
+        name: loyalty
+    # Datasource connection
+    datasource:
+        # URL connection to database
+        url: jdbc:mysql://localhost:3306/loyaltyProgram?createDatabaseIfNotExist=true
+        # Username - password
+        username: devbimbo
+        password: 12345
+        # Driver Class name
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #platform: mysql
+        #initialization-mode: always
+    # Hibernate
+    jpa:
+        hibernate:
+            ddl-auto: update
+            # Format queries
+            format_sql: true
+            show-sql: true
+    #jackson:
+        #time-zone: America/Mexico_City
+# Server port
+server:
+    port: 8080
+# Security token
+token:
+    signing:
+        key: 413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+
