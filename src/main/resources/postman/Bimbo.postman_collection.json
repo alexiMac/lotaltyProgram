@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "8396e279-59de-47bc-82a6-9fbfca8b26d6",
+		"name": "Bimbo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1180030",
+		"_collection_link": "https://lively-trinity-6778.postman.co/workspace/My-Workspace~60734395-6023-41da-8b57-68945b817d84/collection/1180030-8396e279-59de-47bc-82a6-9fbfca8b26d6?action=share&source=collection_link&creator=1180030"
+	},
+	"item": [
+		{
+			"name": "Rewards",
+			"item": [
+				{
+					"name": "Get Cataloge Rewards",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Catalage Rewards by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessBimbo_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/rewards/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"rewards",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authenticate/Authorization",
+			"item": [
+				{
+					"name": "Signin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.data) {",
+									"    pm.environment.set(\"accessBimbo_token\",jsonData.data.token);    ",
+									"} else {",
+									"    pm.environment.set(\"accessBimbo_token\",null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"aalejandro.martd@gmail.com\",\n    \"password\": \"ale\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"if (jsonData.data) {",
+									"    pm.environment.set(\"accessBimbo_token\",jsonData.data.token);    ",
+									"} else {",
+									"    pm.environment.set(\"accessBimbo_token\",null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Antonio\",\n    \"lastName\": \"Martinez\",\n    \"email\": \"aalejandro.martd@gmail.com\",\n    \"password\": \"ale\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Message Authorization",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessBimbo_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/loyalty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"loyalty"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Create Purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessBimbo_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"purchase amount\": \"16000\",\n        \"product description\": \"Pluma de punto fino\",\n        \"quantity\": \"3\"\n    }\n]\n/*\n[\n    {\n        \"purchase amount\": \"1500\",\n        \"product description\": \"Tinta de impresora\",\n        \"quantity\": \"1\"\n    },\n    {\n        \"purchase amount\": \"10000\",\n        \"product description\": \"Pantalon Negro\",\n        \"quantity\": \"3\"\n    },\n    {\n        \"purchase amount\": \"400000\",\n        \"product description\": \"Televisor 50p\",\n        \"quantity\": \"2\"\n    },\n    {\n        \"purchase amount\": \"15100\",\n        \"product description\": \"Televisor 50p\",\n        \"quantity\": \"2\"\n    }\n]\n*/\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/purchase",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Purchase",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Points",
+			"item": [
+				{
+					"name": "Get Points",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Redeem",
+			"item": [
+				{
+					"name": "Create Redeem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessBimbo_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"Id Reward\": \"1\",\n        \"Quatity Rewards\": \"1\"\n    }\n]\n/*\n[\n    {\n        \"Id Reward\": \"1\",\n        \"Quatity Rewards\": \"4\"\n    },\n    {\n        \"Id Reward\": \"1\",\n        \"Quatity Rewards\": \"4\"\n    },\n    {\n        \"Id Reward\": \"2\",\n        \"Quatity Rewards\": \"1\"\n    }\n]\n*/\n/*\n[\n    {\n        \"Id Reward\": \"1\",\n        \"Quatity Rewards\": \"1\"\n    },\n    {\n        \"Id Reward\": \"2\",\n        \"Quatity Rewards\": \"4\"\n    },\n    {\n        \"Id Reward\": \"8\",\n        \"Quatity Rewards\": \"1\"\n    },\n    {\n        \"Id Reward\": \"1\",\n        \"Quatity Rewards\": \"1\"\n    },\n    {\n        \"Id Reward\": \"100\",\n        \"Quatity Rewards\": \"6\"\n    }\n]\n*/",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/v1/redeem",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v1",
+								"redeem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Redeem",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
