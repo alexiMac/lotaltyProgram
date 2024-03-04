@@ -3,9 +3,7 @@ package com.bimbo.app.service.loyalty.impl;
 import com.bimbo.app.dao.request.loyalty.PurchaseRequest;
 import com.bimbo.app.dao.response.loyalty.PurchaseByUserResponse;
 import com.bimbo.app.dao.response.loyalty.PurchaseResponse;
-import com.bimbo.app.dao.response.loyalty.RewardResponse;
 import com.bimbo.app.entities.PurchaseEntity;
-import com.bimbo.app.entities.RewardEntity;
 import com.bimbo.app.entities.UserEntity;
 import com.bimbo.app.exceptions.ServiceException;
 import com.bimbo.app.repository.PurchaseRepository;
@@ -27,9 +25,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class PurchaseServiceImpl implements PurchaseService {
     private static final Logger logger = LoggerFactory.getLogger(PurchaseServiceImpl.class);
-    private final PurchaseRepository purchaseRepository;
     private final AuthenticationService authenticationService;
     private final PointsService pointsService;
+    private final PurchaseRepository purchaseRepository;
     private final UserRepository userRepository;
     @Override
     public PurchaseResponse createPurchase(List<PurchaseRequest> purchaseRequest) {
@@ -37,7 +35,7 @@ public class PurchaseServiceImpl implements PurchaseService {
         List<PurchaseRequest> lstPurchaseResponse = new ArrayList<>();
 
         int accumulatedPoints = 0;
-        int totalPoints = 0;
+        int totalPoints;
         BigDecimal accumulatedAmount = new BigDecimal(0);
 
         // Need to extract from database to ensure the data in entity exists

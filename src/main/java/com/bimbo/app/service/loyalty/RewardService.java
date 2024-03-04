@@ -8,4 +8,6 @@ public interface RewardService {
     List<RewardResponse> getAllRewards();
 
     RewardResponse getRewardById(int id);
+
+    void decreaseQuantityReward(int id, int quantity);
 }

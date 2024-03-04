@@ -27,19 +27,27 @@ public class PointsServiceImpl implements PointsService {
         if (pointsEntity != null) {
             // Update points
             pointsEntity.setAvailablePoints(pointsEntity.getAvailablePoints()+points);
-            logger.info("Update Points: "+pointsEntity);
+            logger.info("Update: Add Points purchase: "+pointsEntity);
         } else {
             // Create record per points user
             pointsEntity = PointEntity.builder().availablePoints(points).user(user).build();
-            logger.info("Create record Points: "+pointsEntity);
+            logger.info("Create: Points purchase: "+pointsEntity);
         }
 
         pointsRepository.save(pointsEntity);
 
     }
+    /* Method - To decrease points used to Redeem - Rewards
+    * If we use this method is because you must have points */
     @Override
     public void setRedeemPoints(UserEntity user, int points) {
 
+        PointEntity pointsEntity = pointsRepository.findPointEntityByUser_Id(user.getId());
+
+        pointsEntity.setAvailablePoints(pointsEntity.getAvailablePoints()-points);
+        logger.info("Update Points Redeem: "+pointsEntity);
+
+        pointsRepository.save(pointsEntity);
     }
 
 }

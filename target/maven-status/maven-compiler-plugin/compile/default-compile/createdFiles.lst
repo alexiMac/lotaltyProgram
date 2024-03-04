@@ -9,6 +9,7 @@ com/bimbo/app/service/loyalty/PurchaseService.class
 com/bimbo/app/service/security/impl/JwtServiceImpl.class
 com/bimbo/app/service/loyalty/impl/PointsServiceImpl.class
 com/bimbo/app/repository/PurchaseRepository.class
+com/bimbo/app/repository/RedeemRepository.class
 com/bimbo/app/LoyaltyProgramApplication.class
 com/bimbo/app/dao/request/security/SignInRequest.class
 com/bimbo/app/config/security/JwtAuthenticationFilter.class
@@ -17,9 +18,12 @@ com/bimbo/app/dao/response/loyalty/PurchaseByUserResponse$PurchaseByUserResponse
 com/bimbo/app/enums/Role.class
 com/bimbo/app/dao/response/loyalty/PurchaseResponse.class
 com/bimbo/app/dao/response/loyalty/RewardResponse$RewardResponseBuilder.class
+com/bimbo/app/dao/response/loyalty/RedeemRewardResponse$RedeemRewardResponseBuilder.class
 com/bimbo/app/service/security/JwtService.class
+com/bimbo/app/dao/response/loyalty/RedeemRewardResponse.class
 com/bimbo/app/controller/security/AuthorizationController.class
 com/bimbo/app/service/loyalty/impl/UserServiceImpl.class
+com/bimbo/app/dao/response/loyalty/RedeemResponse.class
 com/bimbo/app/controller/loyalty/RewardController.class
 com/bimbo/app/entities/RewardEntity.class
 com/bimbo/app/dao/request/loyalty/RedeemRequest.class

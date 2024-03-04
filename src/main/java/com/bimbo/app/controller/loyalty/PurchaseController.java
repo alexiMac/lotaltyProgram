@@ -3,7 +3,6 @@ package com.bimbo.app.controller.loyalty;
 import com.bimbo.app.dao.request.loyalty.PurchaseRequest;
 import com.bimbo.app.dao.response.loyalty.PurchaseByUserResponse;
 import com.bimbo.app.dao.response.loyalty.PurchaseResponse;
-import com.bimbo.app.dao.response.loyalty.RewardResponse;
 import com.bimbo.app.service.loyalty.PurchaseService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -24,9 +23,9 @@ public class PurchaseController {
 
     @PostMapping
     public ResponseEntity<PurchaseResponse> processPurchase(@RequestBody List<PurchaseRequest> purchaseRequest) {
-        logger.info(purchaseRequest.toString());
+        logger.info("Start Purchase Process: "+purchaseRequest);
         PurchaseResponse purchaseResponse = purchaseService.createPurchase(purchaseRequest);
-
+        logger.info("Finish Purchase Process");
         return new ResponseEntity<>(purchaseResponse, HttpStatus.CREATED);
 
        /* try {

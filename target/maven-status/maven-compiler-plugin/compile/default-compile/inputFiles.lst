@@ -7,8 +7,10 @@
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/exceptions/ServiceException.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/service/loyalty/RedeemService.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/controller/loyalty/RewardController.java
+/Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/dao/response/loyalty/RedeemRewardResponse.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/controller/security/AuthorizationController.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/service/security/impl/JwtServiceImpl.java
+/Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/repository/RedeemRepository.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/service/loyalty/impl/RewardServiceImpl.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/entities/UserEntity.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/dao/response/loyalty/PurchaseByUserResponse.java
@@ -41,4 +43,5 @@
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/config/security/SecurityConfiguration.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/enums/Role.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/controller/loyalty/RedeemController.java
+/Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/dao/response/loyalty/RedeemResponse.java
 /Users/antonioalejandromartinezdorantes/Documents/Documents/Grupo Bimbo/loyaltyProgram/src/main/java/com/bimbo/app/service/security/JwtService.java

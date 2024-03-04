@@ -21,8 +21,9 @@ public class PointController {
 
     @GetMapping
     public ResponseEntity<String> getPointPerUser() {
+        logger.info("Start: getPointPerUser");
         int generatedPoints = pointsService.getTotalPointsForUser(authenticationService.getUserContext().getId());
-
+        logger.info("End: getPointPerUser");
         return ResponseEntity.status(HttpStatus.CREATED).body("Generated points: "+generatedPoints);
     }
 

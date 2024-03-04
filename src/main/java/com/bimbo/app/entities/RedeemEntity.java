@@ -40,6 +40,12 @@ public class RedeemEntity {
     @Column(name="i_redeem_points", nullable = false)
     private Integer redeemPoints;
 
+    @Column(name="i_quantity_reward", nullable = false)
+    private Integer quantityReward;
+
+    @Column(name="i_total_redeem_points", nullable = false)
+    private Integer totalRedeemPoints;
+
     @Column(name="d_redeem_date_date", columnDefinition="timestamp default current_timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
